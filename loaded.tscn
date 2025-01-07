@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://bul31sjixbrl3"]
+
+[ext_resource type="Script" path="res://loaded.gd" id="1_iop7j"]
+[ext_resource type="FontFile" uid="uid://fr6uc3hboma4" path="res://fonts/GreatVibes-Regular.ttf" id="2_gkw2u"]
+[ext_resource type="Texture2D" uid="uid://sj3txojepw45" path="res://images/editbg.png" id="3_byvye"]
+[ext_resource type="FontFile" uid="uid://b4uvx37wsc6n1" path="res://fonts/Metropolis-Medium.otf" id="4_gq4lw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6nsv5"]
+font = ExtResource("2_gkw2u")
+font_size = 130
+
+[sub_resource type="LabelSettings" id="LabelSettings_ynb6h"]
+font = ExtResource("4_gq4lw")
+font_size = 21
+font_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[node name="loaded" type="Node2D"]
+script = ExtResource("1_iop7j")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 32.0
+offset_right = 1920.0
+offset_bottom = 199.0
+text = "Photo Define"
+label_settings = SubResource("LabelSettings_6nsv5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 401.0
+offset_top = 234.0
+offset_right = 1552.0
+offset_bottom = 1073.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+
+[node name="LostWords" type="Node" parent="."]
+
+[node name="LostWords" type="Sprite2D" parent="LostWords"]
+position = Vector2(1724, 283)
+scale = Vector2(0.472504, 0.332444)
+texture = ExtResource("3_byvye")
+region_enabled = true
+region_rect = Rect2(541.688, -2.2275, 641.778, 1078.49)
+
+[node name="words" type="RichTextLabel" parent="LostWords"]
+offset_left = 1636.0
+offset_top = 201.0
+offset_right = 1841.0
+offset_bottom = 457.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_gq4lw")
+theme_override_font_sizes/normal_font_size = 22
+
+[node name="Label" type="Label" parent="LostWords"]
+offset_left = 1626.0
+offset_top = 112.0
+offset_right = 1838.0
+offset_bottom = 187.0
+text = "Couldn't find the definitions of these words:"
+label_settings = SubResource("LabelSettings_ynb6h")
+autowrap_mode = 3
+
+[node name="CopyAll" type="RichTextLabel" parent="."]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 238.0
+offset_bottom = 98.0
+theme_override_fonts/normal_font = ExtResource("2_gkw2u")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Copy All"
+
+[node name="CopyArray" type="RichTextLabel" parent="."]
+offset_left = 13.0
+offset_top = 115.0
+offset_right = 326.0
+offset_bottom = 194.0
+theme_override_fonts/normal_font = ExtResource("2_gkw2u")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Copy to Array"
+
+[node name="RemoveTformD" type="RichTextLabel" parent="."]
+offset_left = 12.0
+offset_top = 215.0
+offset_right = 326.0
+offset_bottom = 409.0
+theme_override_fonts/normal_font = ExtResource("2_gkw2u")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Remove Titles"
+
+[node name="button1" type="TextureButton" parent="."]
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 220.0
+offset_bottom = 95.0
+
+[node name="button2" type="TextureButton" parent="."]
+offset_left = 9.0
+offset_top = 111.0
+offset_right = 314.0
+offset_bottom = 195.0
+
+[node name="button3" type="TextureButton" parent="."]
+offset_left = 11.0
+offset_top = 215.0
+offset_right = 330.0
+offset_bottom = 279.0
+
+[connection signal="mouse_entered" from="button1" to="." method="_on_button_1_mouse_entered"]
+[connection signal="mouse_exited" from="button1" to="." method="_on_button_1_mouse_exited"]
+[connection signal="pressed" from="button1" to="." method="_on_button_1_pressed"]
+[connection signal="mouse_entered" from="button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="button2" to="." method="_on_button_2_mouse_exited"]
+[connection signal="pressed" from="button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="button3" to="." method="_on_button_3_mouse_exited"]
+[connection signal="pressed" from="button3" to="." method="_on_button_3_pressed"]

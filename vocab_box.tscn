@@ -1,0 +1,153 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdwcmxtapu80s"]
+
+[ext_resource type="Texture2D" uid="uid://sj3txojepw45" path="res://images/editbg.png" id="1_68du5"]
+[ext_resource type="Script" path="res://vocab_box.gd" id="1_pwwyn"]
+[ext_resource type="FontFile" uid="uid://b4uvx37wsc6n1" path="res://fonts/Metropolis-Medium.otf" id="2_shtbh"]
+[ext_resource type="Texture2D" uid="uid://dur8e5igbajvo" path="res://images/copy_button.png" id="3_s2h4r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8g8r"]
+font = ExtResource("2_shtbh")
+font_size = 33
+font_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_piti3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2qlj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.733333)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aujl1"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.74902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8yxn"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.74902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0nkp"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.054902, 0.054902, 0.054902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xiyui"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_g0kcn"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_piti3")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_piti3")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_piti3")
+VScrollBar/icons/increment = SubResource("ImageTexture_piti3")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_piti3")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_piti3")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_g2qlj")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_aujl1")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_n8yxn")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_j0nkp")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_xiyui")
+
+[node name="VocabBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwwyn")
+
+[node name="Editbg" type="Sprite2D" parent="."]
+position = Vector2(525.5, 122)
+rotation = 1.5708
+scale = Vector2(0.401595, 1)
+texture = ExtResource("1_68du5")
+region_enabled = true
+region_rect = Rect2(553.933, 9.45639, 619.497, 1063.22)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 1053.0
+offset_bottom = 46.0
+text = "Title"
+label_settings = SubResource("LabelSettings_g8g8r")
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 986.5
+offset_top = -3.0
+offset_right = 1056.5
+offset_bottom = 67.0
+texture_normal = ExtResource("3_s2h4r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Def" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 70.0
+offset_right = 1047.0
+offset_bottom = 241.0
+theme = SubResource("Theme_g0kcn")
+theme_override_colors/background_color = Color(0.828125, 0.828125, 0.828125, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_shtbh")
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,0 +1,232 @@
+[gd_scene load_steps=16 format=3 uid="uid://db2j8yvuct4lv"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1kh13"]
+[ext_resource type="FontFile" uid="uid://fr6uc3hboma4" path="res://fonts/GreatVibes-Regular.ttf" id="1_nifl0"]
+[ext_resource type="Texture2D" uid="uid://sj3txojepw45" path="res://images/editbg.png" id="2_u36gn"]
+[ext_resource type="FontFile" uid="uid://b4uvx37wsc6n1" path="res://fonts/Metropolis-Medium.otf" id="3_416vu"]
+[ext_resource type="Texture2D" uid="uid://c7kyx01fpsxff" path="res://images/example.png" id="5_8qa1y"]
+[ext_resource type="Texture2D" uid="uid://wqmn6am11m73" path="res://images/button.png" id="5_ju7mc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yt4sg"]
+font = ExtResource("1_nifl0")
+font_size = 130
+
+[sub_resource type="LabelSettings" id="LabelSettings_flihv"]
+font = ExtResource("3_416vu")
+font_size = 30
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7qck"]
+font = ExtResource("1_nifl0")
+font_size = 66
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_32ekc"]
+load_path = "res://.godot/imported/loading.webp-fa3d81d4e01342a3b0749dc4bc5481c8.ctex"
+
+[sub_resource type="Animation" id="Animation_2a51a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_73kna"]
+resource_name = "loading"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypee6"]
+_data = {
+"RESET": SubResource("Animation_2a51a"),
+"loading": SubResource("Animation_73kna")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ygt4"]
+font = ExtResource("3_416vu")
+font_size = 30
+font_color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ktd8h"]
+font = ExtResource("3_416vu")
+font_size = 30
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1kh13")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 32.0
+offset_right = 1920.0
+offset_bottom = 199.0
+text = "Photo Define"
+label_settings = SubResource("LabelSettings_yt4sg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WordFix" type="Node2D" parent="."]
+visible = false
+position = Vector2(-253, 12)
+
+[node name="Editbg" type="Sprite2D" parent="WordFix"]
+position = Vector2(1071, 614)
+scale = Vector2(1.09635, 0.776852)
+texture = ExtResource("2_u36gn")
+
+[node name="TextEdit" type="TextEdit" parent="WordFix"]
+offset_left = 651.0
+offset_top = 219.0
+offset_right = 1282.0
+offset_bottom = 1007.0
+theme_override_colors/background_color = Color(0.831373, 0.831373, 0.831373, 1)
+theme_override_colors/font_color = Color(0.243137, 0.243137, 0.243137, 1)
+theme_override_colors/font_selected_color = Color(0.815686, 0.815686, 0.815686, 1)
+theme_override_colors/caret_color = Color(0.243137, 0.243137, 0.243137, 1)
+theme_override_fonts/font = ExtResource("3_416vu")
+theme_override_font_sizes/font_size = 30
+
+[node name="visualExample" type="Node2D" parent="WordFix"]
+
+[node name="Editbg" type="Sprite2D" parent="WordFix/visualExample"]
+position = Vector2(1769, 366)
+scale = Vector2(0.591146, 0.287268)
+texture = ExtResource("2_u36gn")
+
+[node name="Example" type="Sprite2D" parent="WordFix/visualExample"]
+position = Vector2(1714, 364)
+texture = ExtResource("5_8qa1y")
+
+[node name="ex" type="Label" parent="WordFix"]
+offset_left = 1536.0
+offset_top = 501.0
+offset_right = 1888.0
+offset_bottom = 668.0
+text = "Please make sure your words are formatted like the example above."
+label_settings = SubResource("LabelSettings_flihv")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="define" type="TextureButton" parent="WordFix"]
+offset_left = 1543.0
+offset_top = 791.0
+offset_right = 2660.0
+offset_bottom = 1078.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("5_ju7mc")
+stretch_mode = 0
+
+[node name="definetext" type="Label" parent="WordFix"]
+offset_left = 1621.0
+offset_top = 790.0
+offset_right = 1788.0
+offset_bottom = 878.0
+text = "Define"
+label_settings = SubResource("LabelSettings_b7qck")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Loading" type="Sprite2D" parent="WordFix"]
+visible = false
+position = Vector2(1716, 839)
+rotation = 6.28319
+scale = Vector2(0.293237, 0.268154)
+texture = SubResource("CompressedTexture2D_32ekc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WordFix/Loading"]
+libraries = {
+"": SubResource("AnimationLibrary_ypee6")
+}
+
+[node name="GetImage" type="Node2D" parent="."]
+
+[node name="pickimgbg" type="Sprite2D" parent="GetImage"]
+position = Vector2(1049, 587)
+scale = Vector2(0.951563, 0.519444)
+texture = ExtResource("2_u36gn")
+
+[node name="upload" type="TextureButton" parent="GetImage"]
+offset_left = 790.0
+offset_top = 507.0
+offset_right = 1853.0
+offset_bottom = 765.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("5_ju7mc")
+stretch_mode = 0
+
+[node name="Title" type="Label" parent="GetImage"]
+offset_left = 867.0
+offset_top = 507.0
+offset_right = 1034.0
+offset_bottom = 594.0
+text = "Upload"
+label_settings = SubResource("LabelSettings_b7qck")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="GetImage"]
+offset_left = 846.0
+offset_top = 606.0
+offset_right = 1063.0
+offset_bottom = 658.0
+text = "or paste image"
+label_settings = SubResource("LabelSettings_3ygt4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="goType" type="RichTextLabel" parent="GetImage"]
+offset_left = 1012.0
+offset_top = 837.0
+offset_right = 1329.0
+offset_bottom = 870.0
+theme_override_colors/default_color = Color(0.117647, 0.117647, 0.117647, 1)
+theme_override_fonts/normal_font = ExtResource("3_416vu")
+bbcode_enabled = true
+text = "No image? Click here to type"
+
+[node name="goTypeButton" type="TextureButton" parent="GetImage"]
+offset_left = 1011.0
+offset_top = 828.0
+offset_right = 1238.0
+offset_bottom = 858.0
+
+[node name="error" type="Label" parent="GetImage"]
+visible = false
+offset_left = 1329.0
+offset_top = 410.0
+offset_right = 1787.0
+offset_bottom = 780.0
+text = "Wasn't able to decode image. Please try again or type the words in below."
+label_settings = SubResource("LabelSettings_ktd8h")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="WordFix/define" to="." method="_on_define_mouse_entered"]
+[connection signal="mouse_exited" from="WordFix/define" to="." method="_on_define_mouse_exited"]
+[connection signal="pressed" from="WordFix/define" to="." method="_on_define_pressed"]
+[connection signal="mouse_entered" from="GetImage/upload" to="." method="_on_upload_mouse_entered"]
+[connection signal="mouse_exited" from="GetImage/upload" to="." method="_on_upload_mouse_exited"]
+[connection signal="pressed" from="GetImage/upload" to="." method="_on_upload_pressed"]
+[connection signal="mouse_entered" from="GetImage/goTypeButton" to="." method="_on_go_type_button_mouse_entered"]
+[connection signal="mouse_exited" from="GetImage/goTypeButton" to="." method="_on_go_type_button_mouse_exited"]
+[connection signal="pressed" from="GetImage/goTypeButton" to="." method="_on_go_type_button_pressed"]
